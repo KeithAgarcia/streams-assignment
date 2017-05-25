@@ -66,14 +66,8 @@ public class Main {
 
         // 4: An alphabetical list of all the distinct states available in the list of users (at most 50)
         List<String> usersState = users.stream()
-                .distinct()
-                .sorted(new Comparator<User>() {
-                    @Override
-                    public int compare(User o1, User o2) {
-                        return o1.getState().compareTo(o2.getState());
-                    }
-                })
                 .map(u -> u.getState())
+                .distinct()
                 .collect(Collectors.toList());
 
 
